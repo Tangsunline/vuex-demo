@@ -9,13 +9,14 @@
                 <el-input v-model="login.password"></el-input>
             </el-form-item>
             <el-form-item>
-               <el-button type="primary" style="width: 100%">登录</el-button>
+               <el-button type="primary" style="width: 100%" @click="toLogin">登录</el-button>
             </el-form-item>
         </el-form>   
       </div>
   </div>
 </template>
 <script>
+    import {mapActions} from 'vuex'
     export default {
         data() {
             return {
@@ -27,7 +28,9 @@
             }
         },
         methods: {
-            
+            ...mapActions([
+                'toLogin'
+            ])
         }
     }
 </script>
