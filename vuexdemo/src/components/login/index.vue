@@ -16,21 +16,24 @@
   </div>
 </template>
 <script>
-    import {mapActions} from 'vuex'
+    import {mapActions,mapGetters} from 'vuex'
     export default {
         data() {
             return {
                 labelPosition: 'right',
-                login: {
-                    name: '',
-                    password: ''
-                }
             }
         },
+        computed: {
+            // 获取state的数据
+            ...mapGetters([
+                'login',
+            ])
+        },
         methods: {
+            //action提交，在mutation里实现的方法
             ...mapActions([
                 'toLogin'
-            ])
+            ]),
         }
     }
 </script>

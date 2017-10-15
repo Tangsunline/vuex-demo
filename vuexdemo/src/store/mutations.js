@@ -3,24 +3,17 @@
 import * as types from './mutation_types.js'
 
 
+
+
 //在对常量事件进行处理
 
 export default {
     [types.LOGIN_SUCCESS] (state) {
-        if(state.login.name !== 'tangqi'||state.login.name === ''||state.login.password === ''||state.login.password !== '123') {
-            this.$alert('登录账号或者密码错误','登录提示',{
-                confirmButtonText: '确定',
-                callback : action => {
-                    this.$message({
-                        type: 'info',
-                        message: `action:${action}`
-                    })
-                }
-            })
-        }else {
-            this.$router.push({
-                path: './content/index'
-            })
-        }
+        //此处做一些逻辑的判断  异步流程的控制等
+            if(state.login.name!= 'tangqi'&&state.login.password!='123') {
+                alert("登陆信息错误")
+            }else {
+                location.href = './content/index'
+            }   
     }
 }
